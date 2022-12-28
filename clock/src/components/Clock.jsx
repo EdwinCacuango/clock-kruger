@@ -1,9 +1,41 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
 const Clock = () => {
+  const [hourStyle, setHourStyle] = useState();
+  const [minuteStyle, setMinuteStyle] = useState();
+  const [secondStyle, setSecondStyle] = useState();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let day = new Date();
+      let hours = day.getHours() * 30;
+      let minutes = day.getMinutes() * 6;
+      let seconds = day.getSeconds() * 6;
+
+      setHourStyle(hours + minutes / 12);
+      setMinuteStyle(minutes);
+      setSecondStyle(seconds);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="clock">
-      <div className="hand hour" data-hour-hand></div>
-      <div className="hand minute" data-minute-hand></div>
-      <div className="hand second" data-second-hand></div>
+      <div
+        className="hand hour"
+        style={{ transform: `rotateZ(${hourStyle}deg)` }}
+        data-hour-hand
+      ></div>
+      <div
+        className="hand minute"
+        style={{ transform: `rotateZ(${minuteStyle}deg)` }}
+      ></div>
+      <div
+        className="hand second"
+        style={{ transform: `rotateZ(${secondStyle}deg)` }}
+      ></div>
       <div className="number number1">
         <span>1</span>
       </div>
