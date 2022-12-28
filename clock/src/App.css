@@ -16,57 +16,62 @@
 }
 
 .clock .number {
-  --rotation: 0;
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
-  transform: rotate(var(--rotation));
-  font-size: 1.5rem;
+  transform: rotate(calc(30deg * var(--rotation)));
+  font-size: 1.25rem;
+}
+
+.clock .number span {
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--rotation)));
+
 }
 
 .clock .number1 {
-  --rotation: 30deg;
+  --rotation: 1;
 }
 
 .clock .number2 {
-  --rotation: 60deg;
+  --rotation: 2;
 }
 
 .clock .number3 {
-  --rotation: 90deg;
+  --rotation: 3;
 }
 
 .clock .number4 {
-  --rotation: 120deg;
+  --rotation: 4;
 }
 
 .clock .number5 {
-  --rotation: 150deg;
+  --rotation: 5;
 }
 
 .clock .number6 {
-  --rotation: 180deg;
+  --rotation: 6;
 }
 
 .clock .number7 {
-  --rotation: 210deg;
+  --rotation: 7;
 }
 
 .clock .number8 {
-  --rotation: 240deg;
+  --rotation: 8;
 }
 
 .clock .number9 {
-  --rotation: 270deg;
+  --rotation: 9;
 }
 
 .clock .number10 {
-  --rotation: 300deg;
+  --rotation: 10;
 }
 
 .clock .number11 {
-  --rotation: 330deg;
+  --rotation: 11;
 }
 
 .clock .hand {
